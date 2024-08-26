@@ -40,7 +40,7 @@ const MentalCardItem: FC = () => {
                       <CircleIcon style={{ color: '#1E88E5', fontSize: '20px' }} />
                     </IconButton>
                     <ListItemText primary="Performance Booster Sessions" primaryTypographyProps={{
-                      style: { whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' },
+                      style: { whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', textTransform: "uppercase" },
                     }} />
                   </ListItem>
                 </List>
@@ -59,7 +59,7 @@ const MentalCardItem: FC = () => {
                       <CircleIcon style={{ color: '#1E88E5', fontSize: '20px' }} />
                     </IconButton>
                     <ListItemText primary="Mind & Body Healing Sessions" primaryTypographyProps={{
-                      style: { whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' },
+                      style: { whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', textTransform: "uppercase" },
                     }} />
                   </ListItem>
                 </List>
@@ -77,7 +77,7 @@ const MentalCardItem: FC = () => {
                       <CircleIcon style={{ color: '#1E88E5', fontSize: '20px' }} />
                     </IconButton>
                     <ListItemText primary="Communication & Relationship Sessions" primaryTypographyProps={{
-                      style: { whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' },
+                      style: { whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', textTransform: "uppercase" },
                     }} />
                   </ListItem>
                 </List>
@@ -92,7 +92,7 @@ const MentalCardItem: FC = () => {
                 <List component="nav">
                   <ListItem button onClick={handleClick}>
                     <ListItemText primary="Other Related Service" primaryTypographyProps={{
-                      style: { whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' },
+                      style: { whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', textTransform: "uppercase" },
                     }} />
                     <IconButton>
                       <ArrowDownward style={{
