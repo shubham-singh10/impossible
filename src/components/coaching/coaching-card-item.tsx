@@ -13,7 +13,13 @@ import { Collapse, Grid } from '@mui/material';
 const DynamicHomePopularTrust = dynamic(() => import('../../components/home/trust'))
 
 import { data } from '../../components/coaching/coaching.data';
+import Link from 'next/link';
 
+const services = [
+  { name: 'Corporate Training', path: '/#' },
+  { name: 'Coaching', path: '/business-coaching' },
+  { name: 'Consulting', path: '/business-management-consulting' },
+];
 const CoachingCardItem: FC = () => {
   const [open, setOpen] = useState(false);
 
@@ -104,12 +110,16 @@ const CoachingCardItem: FC = () => {
                   </ListItem>
                   <Collapse in={open}>
                     <List component="div" disablePadding>
-                      {['Corporate Training', 'Coaching', 'Consulting'].map((service) => (
-                        <ListItem key={service}>
-                          <IconButton>
-                            <CircleIcon style={{ color: '#e9af45', fontSize: '20px' }} />
-                          </IconButton>
-                          <ListItemText primary={service} style={{ color: "orange" }} />
+                      {services.map(({ name, path }) => (
+                        <ListItem key={name} component="div">
+                          <Link href={path} passHref>
+                            <IconButton>
+                              <CircleIcon style={{ color: '#e9af45', fontSize: '20px' }} />
+                            </IconButton>
+                          </Link>
+                          <Link href={path} passHref>
+                            <ListItemText primary={name} style={{ color: "orange", cursor: 'pointer' }} />
+                          </Link>
                         </ListItem>
                       ))}
                     </List>

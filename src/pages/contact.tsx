@@ -72,15 +72,19 @@ const Contact: FC = () => {
                     <Box sx={{
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: '1',
-                        marginTop: '10px',
-                        marginLeft: '20px'
+                        margin: "20px",
+                        padding: "20px",
+                        backgroundColor: "#e0e4fb",
+                        minWidth: "100%",
+                        border: '1px solid #ddd',
+                        borderRadius: '12px',
+                        boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.1)',
                     }}>
-                        <Typography sx={{ fontWeight: 'bold', fontSize: '50px', color: 'blue' }}>
+                        <Typography sx={{ fontWeight: 'bold', fontSize: '50px', textAlign: "center", color: 'blue' }}>
                             Call: +91-8740969452
                         </Typography>
 
-                        <Typography sx={{ fontWeight: 'bold', fontSize: '40px', color: 'gray' }}>
+                        <Typography sx={{ fontWeight: 'bold', fontSize: '40px', textAlign: "center", color: 'gray' }}>
                             We can&apos;t wait to make your ideas a reality
                         </Typography>
                     </Box>

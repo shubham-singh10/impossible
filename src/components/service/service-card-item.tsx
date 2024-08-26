@@ -5,12 +5,14 @@ import Typography from '@mui/material/Typography'
 import IconButton, { iconButtonClasses } from '@mui/material/IconButton'
 import ArrowForward from '@mui/icons-material/ArrowForward'
 import { Service } from '@/interfaces/service'
+import { useRouter } from 'next/router'
 
 interface Props {
   item: Service
 }
 
 const ServiceCardItem: FC<Props> = ({ item }) => {
+  const router = useRouter()
   return (
     <Box
       sx={{
@@ -60,7 +62,7 @@ const ServiceCardItem: FC<Props> = ({ item }) => {
             color="primary"
             sx={{ '&:hover': { backgroundColor: 'primary.main', color: 'primary.contrastText' } }}
           >
-            <ArrowForward />
+            <ArrowForward onClick={() => router.push(`${item.path}`)} />
           </IconButton>
         </Box>
       </Box>
