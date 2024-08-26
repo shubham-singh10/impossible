@@ -13,7 +13,7 @@ const Navigation: FC = () => {
     if (destination.startsWith('/')) {
       router.push(destination);
     } else {
-      // This is an internal section link, let react-scroll handle it
+      // Internal section link handling
     }
   };
 
@@ -36,11 +36,8 @@ const Navigation: FC = () => {
             ...(destination === router.pathname && {
               color: 'primary.main',
             }),
-
             '& > div': { display: 'none' },
-
             '&.current > div': { display: 'block' },
-
             '&:hover': {
               color: 'primary.main',
               '& > div': {
@@ -51,7 +48,11 @@ const Navigation: FC = () => {
           onMouseEnter={() => destination === 'popular' && setDropdownOpen(true)}
           onMouseLeave={() => destination === 'popular' && setDropdownOpen(false)}
           component={destination.startsWith('/') ? 'div' : ScrollLink}
-          onClick={() => handleNavigation(destination)}
+          onClick={() => {
+            if (destination.startsWith('/')) {
+              handleNavigation(destination);
+            }
+          }}
           activeClass="current"
           to={!destination.startsWith('/') ? destination : undefined}
           spy={true}
@@ -124,16 +125,7 @@ const Navigation: FC = () => {
                     '&:hover': { backgroundColor: '#f0f0f0', padding: "10px" },
                   }}
                 >
-                  Corporate Tarining & EAP
-                </Box>
-                <Box
-                  sx={{
-                    py: 1,
-                    cursor: 'pointer',
-                    '&:hover': { backgroundColor: '#f0f0f0', padding: "10px" },
-                  }}
-                >
-                  Coaching
+                  Corporate Training & EAP
                 </Box>
                 <Box
                   sx={{
@@ -143,9 +135,18 @@ const Navigation: FC = () => {
                   }}
                   onClick={() => handleNavigation("/business-coaching")}
                 >
+                  Coaching
+                </Box>
+                <Box
+                  sx={{
+                    py: 1,
+                    cursor: 'pointer',
+                    '&:hover': { backgroundColor: '#f0f0f0', padding: "10px" },
+                  }}
+                  onClick={() => handleNavigation("/business-management-consulting")}
+                >
                   Consulting
                 </Box>
-
               </Box>
             </Box>
           )}
