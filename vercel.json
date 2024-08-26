@@ -1,5 +1,5 @@
 {
-<<<<<<< HEAD
+
     "builds": [
       {
         "src": "package.json",
@@ -7,12 +7,3 @@
       }
     ]
   }
-=======
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
-    }
-  ]
-}
->>>>>>> 1b807fc75a996b79fc55b40fc32f36e4e1a5c48b
