@@ -5,30 +5,25 @@ import { SocialLink } from '@/interfaces/social-link'
 
 export const socialLinks: SocialLink[] = [
   {
+    name: 'Facebook',
+    link: 'https://www.facebook.com/indiaimpossible',
+    icon: '/images/icons/facebook.svg',
+  },
+  {
     name: 'Instagram',
-    link: '#',
+    link: 'https://www.instagram.com/impossibleindia',
     icon: '/images/icons/instagram.svg',
   },
   {
+    name: 'Linkedin',
+    link: '#',
+    icon: '/images/icons/linkedin.svg',
+  },
+  {
     name: 'YouTube',
-    link: '#',
+    link: 'https://www.youtube.com/channel/UCQ9Yz3C_l9-f5mFoAKCQWrA',
     icon: '/images/icons/youtube.svg',
-  },
-  {
-    name: 'Twitter',
-    link: '#',
-    icon: '/images/icons/twitter.svg',
-  },
-  {
-    name: 'Dribbble',
-    link: 'https://dribbble.com/shots/18114471-Coursespace-Online-Course-Landing-Page',
-    icon: '/images/icons/dribbble.svg',
-  },
-  {
-    name: 'Github',
-    link: 'https://github.com/hiriski/coursespace-landing-page',
-    icon: '/images/icons/github.svg',
-  },
+  }
 ]
 
 interface SocialLinkItemProps {
@@ -55,8 +50,10 @@ const SocialLinkItem: FC<SocialLinkItemProps> = ({ item }) => (
         height: 36,
         borderRadius: '50%',
         color: 'inherit',
+        transition: 'background-color 0.3s, transform 0.3s',
         '&:hover': {
           backgroundColor: 'secondary.main',
+          transform: 'scale(1.1)', // Slightly scales up the icon
         },
         '& img': {
           fill: 'currentColor',
@@ -67,7 +64,7 @@ const SocialLinkItem: FC<SocialLinkItemProps> = ({ item }) => (
       href={item.link}
     >
       {/* eslint-disable-next-line */}
-      <img src={item.icon} alt={item.name + 'icon'} />
+      <img src={item.icon} alt={item.name + ' icon'} />
     </Link>
   </Box>
 )
@@ -86,9 +83,9 @@ const SocialLinks: FC = () => {
           listStyle: 'none',
         }}
       >
-        {socialLinks.map((item) => {
-          return <SocialLinkItem key={item.name} item={item} />
-        })}
+        {socialLinks.map((item) => (
+          <SocialLinkItem key={item.name} item={item} />
+        ))}
       </Box>
     </Box>
   )
