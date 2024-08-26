@@ -106,6 +106,7 @@ const Navigation: FC = () => {
                     cursor: 'pointer',
                     '&:hover': { backgroundColor: '#f0f0f0', padding: "10px" },
                   }}
+                  onClick={() => handleNavigation("/mental-health-counselling-healing")}
                 >
                   Counselling & Healing
                 </Box>

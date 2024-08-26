@@ -20,6 +20,6 @@ export const navigations: Navigation[] = [
   },
   {
     label: 'Contact Us',
-    path: 'mentors', // '/mentors',
+    path: '/contact', // '/mentors',
   },
 ]

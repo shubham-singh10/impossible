@@ -22,147 +22,148 @@ const CoachingCardItem: FC = () => {
   return (
     <Fragment>
       <Box sx={{ display: 'flex', flexDirection: "row", px: 2, py: 3 }}>
-        <Box sx={{ display: 'flex', flexDirection: "column", gap: 2 }}>
-          {/* Sidebar */}
-          <Box
-            sx={{
-              width: '450px',
-              backgroundColor: '#fff',
-              borderRadius: 2,
-              boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)',
-              p: 2,
-            }}
-          >
-            <List component="nav">
-              <ListItem button>
-                <IconButton>
-                  <CircleIcon style={{ color: '#1E88E5', fontSize: '20px' }} />
-                </IconButton>
-                <ListItemText
-                  primary="Life Coaching & NLP Coaching"
-                  primaryTypographyProps={{
-                    style: {
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                    },
-                  }}
-                />
-              </ListItem>
-            </List>
+        <Grid item xs={12} md={4}>
+          <Box sx={{ display: 'flex', flexDirection: "column", gap: 2 }}>
+            {/* Sidebar */}
+            <Box
+              sx={{
+                width: '450px',
+                backgroundColor: '#fff',
+                borderRadius: 2,
+                boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)',
+                p: 2,
+              }}
+            >
+              <List component="nav">
+                <ListItem button>
+                  <IconButton>
+                    <CircleIcon style={{ color: '#1E88E5', fontSize: '20px' }} />
+                  </IconButton>
+                  <ListItemText
+                    primary="Life Coaching & NLP Coaching"
+                    primaryTypographyProps={{
+                      style: {
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                      },
+                    }}
+                  />
+                </ListItem>
+              </List>
+            </Box>
+
+            <Box
+              sx={{
+                width: '450px',
+                backgroundColor: '#fff',
+                borderRadius: 2,
+                p: 2,
+                transform: 'scale(1.05)',
+                boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)',
+
+              }}
+            >
+              <List component="nav">
+                <ListItem button>
+                  <IconButton>
+                    <CircleIcon style={{ color: '#1E88E5', fontSize: '20px' }} />
+                  </IconButton>
+                  <ListItemText
+                    primary="Corporate Performance & Executive Coaching"
+                    primaryTypographyProps={{
+                      style: {
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                      },
+                    }}
+                  />
+                </ListItem>
+              </List>
+            </Box>
+
+            <Box
+              sx={{
+                width: '450px',
+                backgroundColor: '#fff',
+                borderRadius: 2,
+                boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)',
+                p: 2,
+              }}
+            >
+              <List component="nav">
+                <ListItem button>
+                  <IconButton>
+                    <CircleIcon style={{ color: '#1E88E5', fontSize: '20px' }} />
+                  </IconButton>
+                  <ListItemText
+                    primary="Business Coaching"
+                    primaryTypographyProps={{
+                      style: {
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                      },
+                    }}
+                  />
+                </ListItem>
+              </List>
+            </Box>
+
+            <Box
+              sx={{
+                width: '450px',
+                backgroundColor: '#c9c2c2',
+                borderRadius: 2,
+                boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)',
+                p: 2,
+              }}
+            >
+              <List component="nav">
+                <ListItem button onClick={handleClick}>
+                  <ListItemText
+                    primary="Other Related Service"
+                    primaryTypographyProps={{
+                      style: {
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                      },
+                    }}
+                  />
+                  <IconButton>
+                    <ArrowDownward style={{ color: '#1E88E5', fontSize: '20px', transform: open ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 1.3s' }} />
+                  </IconButton>
+                </ListItem>
+                <Collapse in={open}>
+                  <List component="div" disablePadding>
+                    <ListItem>
+                      <IconButton>
+                        <CircleIcon style={{ color: '#e9af45', fontSize: '20px' }} />
+                      </IconButton>
+                      <ListItemText primary="Corporate Training" style={{ color: "orange" }} />
+                    </ListItem>
+                    <ListItem>
+                      <IconButton>
+                        <CircleIcon style={{ color: '#e9af45', fontSize: '20px' }} />
+                      </IconButton>
+                      <ListItemText primary="Counseling & Healing" style={{ color: "orange" }} />
+                    </ListItem>
+                    <ListItem>
+                      <IconButton>
+                        <CircleIcon style={{ color: '#e9af45', fontSize: '20px' }} />
+                      </IconButton>
+                      <ListItemText primary="Consulting" style={{ color: "orange" }} />
+                    </ListItem>
+
+                  </List>
+                </Collapse>
+              </List>
+            </Box>
+
           </Box>
-
-          <Box
-            sx={{
-              width: '450px',
-              backgroundColor: '#fff',
-              borderRadius: 2,
-              p: 2,
-              transform: 'scale(1.05)',
-              boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)',
-
-            }}
-          >
-            <List component="nav">
-              <ListItem button>
-                <IconButton>
-                  <CircleIcon style={{ color: '#1E88E5', fontSize: '20px' }} />
-                </IconButton>
-                <ListItemText
-                  primary="Corporate Performance & Executive Coaching"
-                  primaryTypographyProps={{
-                    style: {
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                    },
-                  }}
-                />
-              </ListItem>
-            </List>
-          </Box>
-
-          <Box
-            sx={{
-              width: '450px',
-              backgroundColor: '#fff',
-              borderRadius: 2,
-              boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)',
-              p: 2,
-            }}
-          >
-            <List component="nav">
-              <ListItem button>
-                <IconButton>
-                  <CircleIcon style={{ color: '#1E88E5', fontSize: '20px' }} />
-                </IconButton>
-                <ListItemText
-                  primary="Business Coaching"
-                  primaryTypographyProps={{
-                    style: {
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                    },
-                  }}
-                />
-              </ListItem>
-            </List>
-          </Box>
-
-          <Box
-            sx={{
-              width: '450px',
-              backgroundColor: '#c9c2c2',
-              borderRadius: 2,
-              boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)',
-              p: 2,
-            }}
-          >
-            <List component="nav">
-              <ListItem button onClick={handleClick}>
-                <ListItemText
-                  primary="Other Related Service"
-                  primaryTypographyProps={{
-                    style: {
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                    },
-                  }}
-                />
-                <IconButton>
-                  <ArrowDownward style={{ color: '#1E88E5', fontSize: '20px', transform: open ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 1.3s' }} />
-                </IconButton>
-              </ListItem>
-              <Collapse in={open}>
-                <List component="div" disablePadding>
-                  <ListItem>
-                    <IconButton>
-                      <CircleIcon style={{ color: '#e9af45', fontSize: '20px' }} />
-                    </IconButton>
-                    <ListItemText primary="Corporate Training" style={{ color: "orange" }} />
-                  </ListItem>
-                  <ListItem>
-                    <IconButton>
-                      <CircleIcon style={{ color: '#e9af45', fontSize: '20px' }} />
-                    </IconButton>
-                    <ListItemText primary="Counseling & Healing" style={{ color: "orange" }} />
-                  </ListItem>
-                  <ListItem>
-                    <IconButton>
-                      <CircleIcon style={{ color: '#e9af45', fontSize: '20px' }} />
-                    </IconButton>
-                    <ListItemText primary="Consulting" style={{ color: "orange" }} />
-                  </ListItem>
-
-                </List>
-              </Collapse>
-            </List>
-          </Box>
-
-        </Box>
-
+        </Grid>
         {/* Main Content Area */}
         <Box
           sx={{

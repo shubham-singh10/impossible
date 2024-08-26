@@ -1,90 +1,96 @@
-import React, { FC } from 'react';
-import { Box, Grid, Typography, IconButton, Link } from '@mui/material';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import EmailIcon from '@mui/icons-material/Email';
-import PhoneIcon from '@mui/icons-material/Phone';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-
-const containerStyle = {
-    width: '100%',
-    height: '100%',
-};
-
-const center = {
-    lat: 28.4595, // Replace with your latitude
-    lng: 77.0266, // Replace with your longitude
-};
-
-const ContactPage: FC = () => {
+import React, { FC, Fragment } from 'react';
+import { Header } from '@/components/header';
+import dynamic from 'next/dynamic'
+import { Footer } from '@/components/footer';
+import { Box, Container, Grid, Typography } from '@mui/material';
+const DynamicHomePopularTrust = dynamic(() => import('../components/home/trust'))
+const Contact: FC = () => {
     return (
-        <Box sx={{ flexGrow: 1, height: '100vh' }}>
-            <Grid container>
-                {/* Left Side - Google Map */}
-                <Grid item xs={12} md={6} sx={{ height: '100%' }}>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.4761182780726!2d77.04019487494837!3d28.404887044382907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d22918f5aedaf%3A0x92adc9c511ceeb9d!2sBestech-Park%20View%20City%201!5e0!3m2!1sen!2sin!4v1724664370474!5m2!1sen!2sin" width="600" height="450" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-                </Grid>
+        <Fragment>
+            <Header />
 
-                {/* Right Side - Contact Info */}
-                <Grid
-                    item
-                    xs={12}
-                    md={6}
-                    sx={{
-                        background: 'linear-gradient(to top right, #1A237E, #0D47A1)',
-                        color: '#fff',
+            <Container sx={{ my: 4 }}>
+                <Grid container spacing={4} sx={{ mb: 4 }}>
+                    {/* Google Map Column */}
+                    <Grid item xs={12} md={6}>
+                        <Box
+                            sx={{
+                                height: '400px',
+                                width: '100%',
+                                border: '1px solid #ddd',
+                                borderRadius: '8px',
+                                overflow: 'hidden',
+                                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                            }}
+                        >
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.4761182780726!2d77.04019487494837!3d28.404887044382907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d22918f5aedaf%3A0x92adc9c511ceeb9d!2sBestech-Park%20View%20City%201!5e0!3m2!1sen!2sin!4v1724664370474!5m2!1sen!2sin"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen
+                                loading="lazy"></iframe>
+
+                        </Box>
+                    </Grid>
+
+                    {/* Contact Details Column */}
+                    <Grid item xs={12} md={6}>
+                        <Box
+                            sx={{
+                                p: 3,
+                                height: '100%',
+                                border: '1px solid #ddd',
+                                borderRadius: '12px',
+                                boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.1)',
+                                backgroundColor: '#4587ff',
+                                color: '#fff'
+                            }}
+                        >
+                            <Typography variant="h4" sx={{ mb: 2, fontWeight: 'bold', color: '#fff', textAlign: 'center', borderBottom: '2px solid #fff', borderBottomWidth: "2" }}>
+                                Contact Us
+                            </Typography>
+                            <u><h3>Our Office</h3></u>
+                            <Typography variant="body1" sx={{ mb: 2, color: '#fff' }}>
+                                Sector 49, Bestech Park View, Sohna Road, Gurugram
+                            </Typography>
+
+                            <u><h3>Get in touch</h3></u>
+                            <Typography variant="body1" sx={{ mb: 2, color: '#fff' }}>
+                                +91-8740969452
+                            </Typography>
+                            <Typography variant="body1" sx={{ mb: 2, color: '#fff' }}>
+                                Info@impossibleindia.com
+                            </Typography>
+                            <u><h3>Open Office Hours</h3></u>
+                            <Typography variant="body1" sx={{ color: '#fff' }}>
+                                Monday to Friday, 8:00 AM - 6:00 PM <br />
+                                Saturday to Sunday, 10:00 AM - 4:00 PM
+                            </Typography>
+                        </Box>
+                    </Grid>
+
+                    <Box sx={{
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        p: 4,
-                    }}
-                >
-                    <Typography variant="h4" gutterBottom>
-                        Contact Info
-                    </Typography>
-
-                    <Box sx={{ my: 2 }}>
-                        <Typography variant="h6" display="flex" alignItems="center">
-                            <LocationOnIcon sx={{ mr: 2 }} /> Our Office
+                        gap: '1',
+                        marginTop: '10px',
+                        marginLeft: '20px'
+                    }}>
+                        <Typography sx={{ fontWeight: 'bold', fontSize: '50px', color: 'blue' }}>
+                            Call: +91-8740969452
                         </Typography>
-                        <Typography>Sector 49, Bestech Park View, Sohna Road, Gurugram</Typography>
-                    </Box>
 
-                    <Box sx={{ my: 2 }}>
-                        <Typography variant="h6" display="flex" alignItems="center">
-                            <AccessTimeIcon sx={{ mr: 2 }} /> Open Office Hours
+                        <Typography sx={{ fontWeight: 'bold', fontSize: '40px', color: 'gray' }}>
+                            We can&apos;t wait to make your ideas a reality
                         </Typography>
-                        <Typography>Mon – Fri: 8AM – 6PM</Typography>
-                        <Typography>Sat – Sun: 10AM – 4PM</Typography>
                     </Box>
 
-                    <Box sx={{ my: 2 }}>
-                        <Typography variant="h6" display="flex" alignItems="center">
-                            <EmailIcon sx={{ mr: 2 }} /> Get in Touch
-                        </Typography>
-                        <Typography>Info@impossibleindia.com</Typography>
-                        <Typography>+91-8740969452</Typography>
-                    </Box>
-
-                    {/* Social Icons */}
-                    <Box sx={{ mt: 4 }}>
-                        <IconButton color="inherit" component={Link} href="#">
-                            <FacebookIcon />
-                        </IconButton>
-                        <IconButton color="inherit" component={Link} href="#">
-                            <InstagramIcon />
-                        </IconButton>
-                        <IconButton color="inherit" component={Link} href="#">
-                            <YouTubeIcon />
-                        </IconButton>
-                    </Box>
                 </Grid>
-            </Grid>
-        </Box>
+            </Container>
+            <DynamicHomePopularTrust />
+            <Footer />
+        </Fragment>
     );
 };
 
-export default ContactPage;
+export default Contact;
