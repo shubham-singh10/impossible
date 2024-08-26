@@ -1,11 +1,14 @@
-import React, { FC } from 'react'
-import Box from '@mui/material/Box'
-import { Link as ScrollLink } from 'react-scroll'
-import { navigations } from './navigation.data'
-import { useRouter } from 'next/router'
+import React, { FC, useState } from 'react';
+import Box from '@mui/material/Box';
+import { Link as ScrollLink } from 'react-scroll';
+import { navigations } from './navigation.data';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 const Navigation: FC = () => {
-  const router = useRouter()
+  const router = useRouter();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   const handleNavigation = (destination: string): void => {
     if (destination.startsWith('/')) {
       router.push(destination);
@@ -14,19 +17,11 @@ const Navigation: FC = () => {
     }
   };
 
-
   return (
     <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
       {navigations.map(({ path: destination, label }) => (
         <Box
-          component={destination.startsWith('/') ? 'div' : ScrollLink}
-          onClick={() => handleNavigation(destination)}
           key={destination}
-          activeClass="current"
-          to={!destination.startsWith('/') ? destination : undefined}
-          spy={true}
-          smooth={true}
-          duration={350}
           sx={{
             position: 'relative',
             color: 'text.disabled',
@@ -44,15 +39,24 @@ const Navigation: FC = () => {
 
             '& > div': { display: 'none' },
 
-            '&.current>div': { display: 'block' },
+            '&.current > div': { display: 'block' },
 
             '&:hover': {
               color: 'primary.main',
-              '&>div': {
+              '& > div': {
                 display: 'block',
               },
             },
           }}
+          onMouseEnter={() => destination === 'popular' && setDropdownOpen(true)}
+          onMouseLeave={() => destination === 'popular' && setDropdownOpen(false)}
+          component={destination.startsWith('/') ? 'div' : ScrollLink}
+          onClick={() => handleNavigation(destination)}
+          activeClass="current"
+          to={!destination.startsWith('/') ? destination : undefined}
+          spy={true}
+          smooth={true}
+          duration={350}
         >
           <Box
             sx={{
@@ -62,14 +66,93 @@ const Navigation: FC = () => {
               '& img': { width: 44, height: 'auto' },
             }}
           >
-            {/* eslint-disable-next-line */}
-            <img src="/images/headline-curve.svg" alt="Headline curve" />
+            <Image src="/images/headline-curve.svg" alt="Headline curve" height={10} width={50} />
           </Box>
           {label}
+          {destination === 'popular' && (
+            <Box
+              className="dropdown-menu"
+              sx={{
+                position: 'absolute',
+                top: '100%',
+                left: 0,
+                background: '#fff',
+                color: '#000',
+                boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+                borderRadius: 1,
+                overflow: 'hidden',
+                zIndex: 10,
+                opacity: dropdownOpen ? 1 : 0,
+                transform: dropdownOpen ? 'scaleY(1)' : 'scaleY(0)',
+                transformOrigin: 'top',
+                transition: 'opacity 0.3s ease, transform 0.3s ease',
+                display: dropdownOpen ? 'block' : 'none',
+                width: '200px',
+              }}
+            >
+              <Box sx={{ p: 2 }}>
+                <Box
+                  sx={{
+                    py: 1,
+                    color: "GrayText"
+                  }}
+                >
+                  Individual
+                </Box>
+                <Box
+                  sx={{
+                    py: 1,
+                    cursor: 'pointer',
+                    '&:hover': { backgroundColor: '#f0f0f0', padding: "10px" },
+                  }}
+                >
+                  Counselling & Healing
+                </Box>
+                <Box
+                  sx={{
+                    py: 1,
+                    color: "GrayText"
+                  }}
+                >
+                  Corporate
+                </Box>
+
+                <Box
+                  sx={{
+                    py: 1,
+                    cursor: 'pointer',
+                    '&:hover': { backgroundColor: '#f0f0f0', padding: "10px" },
+                  }}
+                >
+                  Corporate Tarining & EAP
+                </Box>
+                <Box
+                  sx={{
+                    py: 1,
+                    cursor: 'pointer',
+                    '&:hover': { backgroundColor: '#f0f0f0', padding: "10px" },
+                  }}
+                >
+                  Coaching
+                </Box>
+                <Box
+                  sx={{
+                    py: 1,
+                    cursor: 'pointer',
+                    '&:hover': { backgroundColor: '#f0f0f0', padding: "10px" },
+                  }}
+                  onClick={() => handleNavigation("/business-coaching")}
+                >
+                  Consulting
+                </Box>
+
+              </Box>
+            </Box>
+          )}
         </Box>
       ))}
     </Box>
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;

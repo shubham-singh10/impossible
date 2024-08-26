@@ -2,11 +2,10 @@ import React, { FC } from 'react'
 import Link from 'next/link'
 import Grid from '@mui/material/Grid'
 import MuiLink from '@mui/material/Link'
+import { Typography } from '@mui/material'
 import type { Navigation } from '@/interfaces/navigation'
 import { navigations as headerNavigations } from '@/components/navigation/navigation.data'
 import { FooterSectionTitle } from '@/components/footer'
-import { Typography } from '@mui/material'
-
 
 const pageMenu = headerNavigations
 
@@ -44,10 +43,10 @@ const FooterNavigation: FC = () => {
     <Grid container spacing={2}>
       <Grid item xs={12} md={4}>
         <FooterSectionTitle title="Location" />
-        <Typography >
+        <Typography component="div"> {/* Use "div" to avoid <p> nesting */}
           Sector 49, Bestech Park View, Sohna Road, Gurugram
         </Typography>
-        <Typography mt={5}>
+        <Typography component="div" mt={5}> {/* Use "div" to avoid <p> nesting */}
           <FooterSectionTitle title="Email" />
           Info@impossibleindia.com
         </Typography>
